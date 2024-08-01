@@ -11,9 +11,11 @@ RUN wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/c
     && mv cloudflared /usr/bin/
 
 ARG UUID
+ARG CLOUDFLARE_TUNNEL_TOKEN
 ENV NODE_ENV=production
 ENV PORT=4100
 ENV UUID=${UUID}
+ENV CLOUDFLARE_TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
 
 COPY dist dist/
 COPY start.sh start.sh
