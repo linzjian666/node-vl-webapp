@@ -17,6 +17,8 @@ RUN apt-get update && \
 # copy files from the repository into this staging server
 COPY . .
 
-RUN docker build -t image .
+SECRET ENV UUID
+
+RUN docker build --build-arg UUID=${UUID} -t image .
 RUN docker run -d -p 4100:4100 image
 EXPOSE WEBSITE http://localhost:4100
