@@ -10,8 +10,10 @@ RUN wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/c
     && chmod +x cloudflared \
     && mv cloudflared /usr/bin/
 
+ARG UUID
 ENV NODE_ENV=production
 ENV PORT=4100
+ENV UUID=${UUID}
 
 COPY dist dist/
 COPY start.sh start.sh
