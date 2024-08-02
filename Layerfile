@@ -20,6 +20,6 @@ COPY . .
 SECRET ENV UUID
 SECRET ENV CLOUDFLARE_TUNNEL_TOKEN
 
-RUN docker build --build-arg UUID=${UUID} --build-arg CLOUDFLARE_TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN} -t image .
+RUN docker build --build-arg UUID=${UUID} -t image .
 RUN docker run -d -p 4100:4100 image
 EXPOSE WEBSITE http://localhost:4100
