@@ -18,7 +18,6 @@ RUN apt-get update && \
 COPY . .
 
 SECRET ENV UUID
-SECRET ENV CLOUDFLARE_TUNNEL_TOKEN
 
 RUN docker build --build-arg UUID=${UUID} -t image .
 RUN docker run -d -p 4100:4100 image
